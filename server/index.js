@@ -15,7 +15,7 @@ app.get('/', async (req, res) => {
 
 app.post('/data', jsonParser, async (req, res) => {
     let data = req.body
-    let result = await db.set("key",data)
+    let result = await db.set(data)
 
     res.send(result).status(204)
 })

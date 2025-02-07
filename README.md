@@ -4,11 +4,11 @@
 
 ### Instructions
 
-download dependencies
+cd server
 
-cd src
+node index.js
 
-node app.js
+docker run --name pet-db -v /home/seansamu/Projects/petco/data:/data/db -p 6379:6379 -d redis
 
 go to localhost:3000 for main page
 
