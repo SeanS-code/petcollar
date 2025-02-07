@@ -1,0 +1,25 @@
+{
+  "name": "petco",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SeanS-code/petco"
+  },
+  "author": "SeanS-code",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeanS-code/petco/issues"
+  },
+  "homepage": "https://github.com/SeanS-code/petco#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "mongodb": "^6.13.0",
+    "redis": "^4.7.0"
+  }
+}
