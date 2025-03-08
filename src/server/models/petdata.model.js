@@ -3,7 +3,11 @@ import mongoose from "mongoose"
 const petDataSchema = new mongoose.Schema({
     heartRate: String,
     spo2: Number,
-    accelerometer: Number,
+    accelerometer: {
+        x: Number,
+        y: Number,
+        z: Number
+    },
     temp: Number,
     timestamp: {
         type: Date,
