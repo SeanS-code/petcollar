@@ -4,8 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "dev": "nodemon src/server/index.js",
+    "app": "node src/client/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/SeanS-code/petco"
@@ -17,9 +20,12 @@
   },
   "homepage": "https://github.com/SeanS-code/petco#readme",
   "dependencies": {
-    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongodb": "^6.13.0",
-    "redis": "^4.7.0"
+    "mongoose": "^8.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
   }
 }

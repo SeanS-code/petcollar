@@ -1,5 +1,6 @@
 README-info.md
 data
+.env
 
 node_modules/
 package-lock.json
