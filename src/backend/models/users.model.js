@@ -1,5 +1,7 @@
 import mongoose from "mongoose"
 
+import { petSchema } from "./pets.model.js"
+
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -9,6 +11,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    pets: [petSchema],
     admin: {
         type: Number,
         required: false,

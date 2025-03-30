@@ -18,6 +18,13 @@ const petDataSchema = new mongoose.Schema({
     }
 })
 
-const Data = mongoose.model('PetData', petDataSchema)
+const petSchema = new mongoose.Schema({
+    name: String,
+    age: Number,
+    data: {type: [petDataSchema], default: []}
+})
 
-export default Data
+export { petSchema }
+
+const Pet = mongoose.model('Pet', petSchema)
+export default Pet

@@ -11,16 +11,10 @@ export default function app() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Smart Pet Collar</Text>
+      <Text style={styles.title}>Smart<br />Pet Collar</Text>
       <Text style={styles.heading}>Project Summary</Text> 
       <Text style={styles.text}>The smart pet collar is a revolution within 
-        the already existing niche of smart/IoT based pet devices. 
-        Integrating GPS tracking along with advancing already existing 
-        health metrics with a combination of AI analytics and real time 
-        monitoring; the device offers pet owners a piece of mind ensuring 
-        their pets receive preventative healthcare. Our business model 
-        focuses on affordability and accessibility, offering a premium 
-        version with GPS and affordable health-monitoring without GPS.</Text>
+        the already existing niche of smart/IoT based pet devices.</Text>
     </View>
   )
 }
