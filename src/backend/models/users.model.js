@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    pets: [petSchema],
+    pets: [{ type: mongoose.Schema.Types.ObjectId, ref: "Pet" }],
     admin: {
         type: Number,
         required: false,

@@ -16,9 +16,10 @@ const petDataSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-})
+}, {_id: false})
 
 const petSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     name: String,
     age: Number,
     data: {type: [petDataSchema], default: []}

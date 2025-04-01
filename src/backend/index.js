@@ -16,7 +16,7 @@ app.use(express.json())
 // GET Requests
 
 // Gets all users
-app.get('/users/data', async (req, res) => {
+app.get('/users', async (req, res) => {
     try {
         const users = await User.find({})
         res.status(200).json({ success: true, data: users})
@@ -40,7 +40,7 @@ app.get('/pets', async (req, res) => {
 // POST Requests
 
 // Creates a new user
-app.post('/users', async (req, res) => {
+app.post('/users/create', async (req, res) => {
     const user = req.body
 
     if(!user.username || !user.password)
@@ -55,15 +55,32 @@ app.post('/users', async (req, res) => {
 })
 
 // Creates a pet
-app.post('/user/pet', async (req, res) => {
+app.post('/users/:userID/pet', async (req, res) => {
     try {
+        const { userID } = req.params
         const { name, age, data } = req.body;
-        // Create a new pet (if data is undefined, default will apply)
-        const newPet = new Pet({ name, age, data: data || [] });
+
+        // Check if user exists
+        const user = await User.findById(userID);
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        // Validate required fields
+        if (!userID || !name || !age) {
+            return res.status(400).json({ message: "Missing required fields: userID, name, or age" });
+        }
+
+        const newPet = new Pet({ userId: userID, name, age, data: data || [] });
+
         // Save the pet to the database
         await newPet.save();
+
+        // Add pet reference to user's pet array
+        user.pets.push(newPet._id);
+        await user.save();
+
         res.status(201).json({ message: "Pet added successfully", pet: newPet });
-    } catch(e){res.status(500).json({ message: "Error adding pet", error })}
+    } catch(e){res.status(500).json({ message: "Error adding pet", e })}
 })
 
 // Adds data of pet collar to Pet
