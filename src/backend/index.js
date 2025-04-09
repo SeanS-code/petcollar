@@ -54,7 +54,7 @@ app.post('/users/create', async (req, res) => {
     } catch (e) {console.log(e)}
 })
 
-// Creates a pet
+// Creates a pet and adds to a User
 app.post('/users/:userID/pet', async (req, res) => {
     try {
         const { userID } = req.params

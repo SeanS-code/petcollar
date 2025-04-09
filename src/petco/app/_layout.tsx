@@ -14,7 +14,7 @@ export default function RootLayout() {
           headerRight: () => (
             <View style={{ flexDirection: "row", gap: 10, marginRight: 10 }}>
               <Button title="Home" onPress={() => router.replace("/")} />
-              <Button title="Login" onPress={() => router.replace("/screens/login")} />
+              {/*<Button title="Login" onPress={() => router.replace("/screens/login")} />*/}
             </View>
           ),
           headerLeft: () => <MaterialCommunityIcons name="dog" size={24} color="black" />
